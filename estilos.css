@@ -62,7 +62,15 @@ a:active {
   margin-bottom: 0;
 }
 
-
+#menu-de-navegacao ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+#menu-de-navegacao ul li {
+  display: inline-block;
+  padding: 0.5em 1em;
+}
 
 /* --- Conteúdo principal da página --- */
 #conteudo-principal {
@@ -70,9 +78,6 @@ a:active {
   transition: opacity 1s linear;
   padding-bottom: 3em;
 }
-
-
-
 
 /* --- Principal >> Postagens principais --- */
 #posts-principais {
@@ -89,10 +94,26 @@ a:active {
   margin-left: 2.5%;
   margin-right: 2.5%;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
 
 #posts-principais .post .titulo {
-  text-shadow: 1px 1px black;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+  padding: 0.5em;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 300ms ease, top 300ms ease;
+}
+
+#posts-principais .post:hover .titulo {
+  top: 6px;
+  opacity: 1;
 }
 
 #posts-principais .post img {
@@ -102,9 +123,6 @@ a:active {
   border: 6px solid white;
   margin-bottom: .5em;
 }
-
-
-
 
 /* --- Principal >> Últimas postagens --- */
 #ultimas-postagens {
@@ -133,9 +151,6 @@ a:active {
   display: inline-block;
 }
 
-
-
-
 /* --- Principal >> Nuvem de tags --- */
 #tags {
   float: right;
@@ -147,6 +162,9 @@ a:active {
   background-size: 300px;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
 }
 
 #tags h1 {
@@ -174,9 +192,32 @@ a:active {
   font-size: 150%;
 }
 
+.tag-1,
+.tag-2,
+.tag-3 {
+  cursor: pointer;
+}
 
+.tag-1:active,
+.tag-2:active,
+.tag-3:active {
+  position: relative;
+  top: -2px;
+  left: -2px;
+}
 
-
+.novidade::before {
+  content: "Novidade!";
+  background-color: rgb(20, 220, 23);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 0.5em;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
 /* --- Rodapé --- */
 #rodape {
@@ -189,9 +230,30 @@ a:active {
   margin-right: 2em;
 }
 
+#inscreva-se {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em 1em;
+  margin-top: 0.5em;
+}
 
+#inscreva-se h3 {
+  width: 100%;
+  margin: 0 0 0.3em;
+}
 
+.boo {
+  position: fixed;
+  width: 40px;
+  opacity: 0.15;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
 
+.boo:hover {
+  opacity: 1;
+}
 
 /* --- Vídeo --- */
 .backdrop {
